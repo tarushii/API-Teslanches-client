@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const { encrypt } = require('../funcoes/criptografia');
 const { registroSchema } = require('../validacoes/registroSchema');
 const { erros } = require('../erros/registro');
@@ -24,7 +25,7 @@ const registrarConsumidor = async (req, res) => {
 
     return res.status(201).json('Usuário registrado com sucesso!');
   } catch (error) {
-    return res.status(400).json(error.message);
+    return res.status(400).json(`erro: ${error.message}`);
   }
 };
 
