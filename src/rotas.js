@@ -9,8 +9,8 @@ const rota = express();
 rota.post('/cadastro', registrarConsumidor);
 rota.post('/login', loginConsumidor);
 
-rota.get('/restaurantes', listarRestaurantes);
-rota.get('/restaurantes/:nomeRestaurante', listarRestaurantes);
+rota.get('/restaurantes/:nomeRestaurante', buscarRestaurante);
 rota.use(verificarLogin);
+rota.get('/restaurantes', listarRestaurantes);
 
 module.exports = rota;
