@@ -53,6 +53,6 @@ CREATE TABLE consumidor(
   id SERIAL NOT NULL PRIMARY KEY,
   nome_usuario TEXT NOT NULL,
   email TEXT NOT NULL,
-  telefone NUMBER NOT NULL,
+  telefone NUMERIC NOT NULL,
   senha JSON NOT NULL
 );
