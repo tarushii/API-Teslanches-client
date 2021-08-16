@@ -15,7 +15,8 @@ const encrypt = (password) => {
   };
 };
 
-const decrypt = (password) => {
+const decrypt = (psw) => {
+  const password = JSON.parse(psw);
   const decipher = crypto.createDecipheriv(
     algorithm,
     secretKey,
