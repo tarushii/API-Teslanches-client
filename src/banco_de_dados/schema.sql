@@ -70,7 +70,7 @@ CREATE TABLE pedido(
   restaurante_id INT NOT NULL REFERENCES restaurante(id),
   consumidor_id INT NOT NULL REFERENCES consumidor(id),
   valor_produtos INT NOT NULL,
-  taxa_entrega INT NOT NULL REFERENCES restaurante(taxa_entrega),
+  taxa_entrega INT NOT NULL REFERENCES,
   valor_total INT NOT NULL,
   endereco_entrega TEXT NOT NULL,
   carrinho JSON NOT NULL
