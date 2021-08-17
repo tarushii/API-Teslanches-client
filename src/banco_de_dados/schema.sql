@@ -54,8 +54,24 @@ CREATE TABLE consumidor(
   nome_usuario TEXT NOT NULL,
   email TEXT NOT NULL,
   telefone NUMERIC NOT NULL,
-  senha JSON NOT NULL,
-  cep NUMERIC,
-  endereco TEXT,
-  complemento TEXT
+  senha JSON NOT NULL
+)
+
+CREATE TABLE endereco(
+  id SERIAL NOT NULL PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  cep NUMERIC NOT NULL,
+  endereco TEXT NOT NULL,
+  complemento TEXT NOT NULL
+)
+
+CREATE TABLE pedido(
+  id SERIAL NOT NULL PRIMARY KEY,
+  restaurante_id INT NOT NULL REFERENCES restaurante(id),
+  usuario_id INT NOT NULL REFERENCES usuario(id),
+  valor_produtos INT NOT NULL,
+  taxa_entrega INT NOT NULL REFERENCES restaurante(taxa_entrega),
+  valor_total INT NOT NULL,
+  endereco_entrega TEXT NOT NULL,
+  carrinho JSON NOT NULL
 );
