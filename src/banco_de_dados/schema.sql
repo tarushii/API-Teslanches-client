@@ -54,5 +54,8 @@ CREATE TABLE consumidor(
   nome_usuario TEXT NOT NULL,
   email TEXT NOT NULL,
   telefone NUMERIC NOT NULL,
-  senha JSON NOT NULL
+  senha JSON NOT NULL,
+  cep NUMERIC,
+  endereco TEXT,
+  complemento TEXT
 );
