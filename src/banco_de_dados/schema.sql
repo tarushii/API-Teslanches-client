@@ -59,7 +59,7 @@ CREATE TABLE consumidor(
 
 CREATE TABLE endereco(
   id SERIAL NOT NULL PRIMARY KEY,
-  usuario_id INT NOT NULL,
+  consumidor_id INT NOT NULL REFERENCES consumidor(id),
   cep NUMERIC NOT NULL,
   endereco TEXT NOT NULL,
   complemento TEXT NOT NULL
@@ -68,7 +68,7 @@ CREATE TABLE endereco(
 CREATE TABLE pedido(
   id SERIAL NOT NULL PRIMARY KEY,
   restaurante_id INT NOT NULL REFERENCES restaurante(id),
-  usuario_id INT NOT NULL REFERENCES usuario(id),
+  consumidor_id INT NOT NULL REFERENCES consumidor(id),
   valor_produtos INT NOT NULL,
   taxa_entrega INT NOT NULL REFERENCES restaurante(taxa_entrega),
   valor_total INT NOT NULL,
