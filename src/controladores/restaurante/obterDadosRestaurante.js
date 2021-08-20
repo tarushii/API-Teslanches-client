@@ -1,8 +1,5 @@
-const jwt = require('jsonwebtoken');
 const { erros } = require('../../erros/perfilRestaurante');
 const knex = require('../../banco_de_dados/conexao');
-
-const jwtSecret = process.env.JWT_SECRET;
 
 const obterDadosRestaurante = async (req, res) => {
   const { id } = req.params;

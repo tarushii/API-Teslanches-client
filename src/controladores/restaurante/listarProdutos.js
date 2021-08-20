@@ -6,6 +6,7 @@ const jwtSecret = process.env.JWT_SECRET;
 
 const listarProdutos = async (req, res) => {
   const dadosUsuarios = jwt.verify(req.header('tokenUsuario'), jwtSecret);
+  // eslint-disable-next-line no-unused-vars
   const { ID } = dadosUsuarios;
   const { id } = req.params;
 
