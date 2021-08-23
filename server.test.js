@@ -56,7 +56,7 @@ describe('Registro', () => {
   // Importante editar isso a cada teste. Se não dará que o usuário já existe
   const usuario = {
     nome_usuario: 'teste',
-    email: 'teste1@email.com',
+    email: 'teste2@email.com',
     telefone: 71999495016,
     senha: '1234567890',
   };

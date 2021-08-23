@@ -5,6 +5,9 @@ CREATE TABLE categoria(
   nome varchar(30) NOT NULL
 );
 
+INSERT INTO restaurante (usuario_id, nome, descricao, imagem_restaurante, categoria_id, taxa_entrega, tempo_entrega_minutos, valor_minimo_pedido)
+VALUES (1, 'Restaurante 1', 'desc', 'asd', 3, 123, 123, 123);
+
 INSERT INTO categoria (nome)
 VALUES
 ('Diversos'),

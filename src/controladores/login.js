@@ -28,11 +28,23 @@ const loginConsumidor = async (req, res) => {
       Email: usuario[0].email,
     }, jwtSecret, { expiresIn: '1h' });
 
+    let endereco = null;
+    const enderecoUsuario = await knex('endereco').select('*').where({ consumidor_id: usuario[0].id });
+
+    if (enderecoUsuario.length > 0) {
+      endereco = {
+        cep: enderecoUsuario[0].cep,
+        endereco: enderecoUsuario[0].endereco,
+        complemento: enderecoUsuario[0].complemento,
+      };
+    }
+
     const auth = {
       usuario: {
         ID: usuario[0].id,
         NomeUsuario: usuario[0].nome_usuario,
         Email: usuario[0].email,
+        Endereco: endereco,
       },
       tokenUsuario,
     };
