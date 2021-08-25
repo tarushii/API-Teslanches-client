@@ -17,7 +17,14 @@ const listarProdutos = async (req, res) => {
       return res.status(400).json(erros.dadoIncorreto);
     }
 
-    res.status(200).json(produtos);
+    // eslint-disable-next-line array-callback-return
+    const ativos = produtos.filter((item) => {
+      if (item.ativo) {
+        return item;
+      }
+    });
+
+    res.status(200).json(ativos);
   } catch (error) {
     res.status(400).json(error.message);
   }
