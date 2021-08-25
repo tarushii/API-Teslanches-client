@@ -22,12 +22,6 @@ const loginConsumidor = async (req, res) => {
       return res.status(400).json(erros.dadoIncorreto);
     }
 
-    const tokenUsuario = jwt.sign({
-      ID: usuario[0].id,
-      NomeUsuario: usuario[0].nome_usuario,
-      Email: usuario[0].email,
-    }, jwtSecret, { expiresIn: '1h' });
-
     let endereco = null;
     const enderecoUsuario = await knex('endereco').select('*').where({ consumidor_id: usuario[0].id });
 
@@ -39,12 +33,18 @@ const loginConsumidor = async (req, res) => {
       };
     }
 
+    const tokenUsuario = jwt.sign({
+      ID: usuario[0].id,
+      NomeUsuario: usuario[0].nome_usuario,
+      Email: usuario[0].email,
+      Endereco: endereco,
+    }, jwtSecret, { expiresIn: '1h' });
+
     const auth = {
       usuario: {
         ID: usuario[0].id,
         NomeUsuario: usuario[0].nome_usuario,
         Email: usuario[0].email,
-        Endereco: endereco,
       },
       tokenUsuario,
     };
