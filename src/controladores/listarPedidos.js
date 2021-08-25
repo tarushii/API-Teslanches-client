@@ -16,7 +16,14 @@ const listarPedidos = async (req, res) => {
       return res.status(404).json(erros.semPedidos);
     }
 
-    return res.status(200).json(pedidos);
+    const output = {
+      Nome: dadosUsuario.NomeUsuario,
+      Pedidos: {
+        ...pedidos,
+      },
+    };
+
+    return res.status(200).json(output);
   } catch (error) {
     res.status(400).json(error.message);
   }
