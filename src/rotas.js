@@ -7,6 +7,7 @@ const { obterDadosRestaurante } = require('./controladores/restaurante/obterDado
 const { listarProdutos } = require('./controladores/restaurante/listarProdutos');
 const { registrarEndereco } = require('./controladores/cadastroEndereco');
 const { registrarPedido } = require('./controladores/registrarPedido');
+const { listarPedidos } = require('./controladores/listarPedidos');
 
 const rota = express();
 
@@ -20,6 +21,7 @@ rota.get('/restaurantes', listarRestaurantes);
 rota.get('/restaurante/:id', obterDadosRestaurante);
 rota.get('/restaurate/:id/perfil', listarProdutos);
 
+rota.get('/consumidor/pedidos', listarPedidos);
 rota.patch('/consumidor/adicionarEndereco', registrarEndereco);
 rota.post('/consumidor/registrarPedido', registrarPedido);
 
