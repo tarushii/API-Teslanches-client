@@ -9,6 +9,7 @@ const { registrarEndereco } = require('./controladores/cadastroEndereco');
 const { registrarPedido } = require('./controladores/registrarPedido');
 const { listarPedidos } = require('./controladores/listarPedidos');
 const { listarDadosDoUsuario } = require('./controladores/listarDadosDoUsuario');
+const { obterEndereco } = require('./controladores/obterEndereco');
 
 const rota = express();
 
@@ -26,5 +27,6 @@ rota.get('/consumidor', listarDadosDoUsuario);
 rota.get('/consumidor/pedidos', listarPedidos);
 rota.patch('/consumidor/adicionarEndereco', registrarEndereco);
 rota.post('/consumidor/registrarPedido', registrarPedido);
+rota.get('/consumidor/endereco', obterEndereco);
 
 module.exports = rota;
