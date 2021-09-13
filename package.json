@@ -1,5 +1,5 @@
 {
-  "name": "API-Teslanches-consumidor",
+  "name": "API-Teslanches-client",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
